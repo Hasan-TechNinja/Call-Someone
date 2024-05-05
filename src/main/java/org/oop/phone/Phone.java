@@ -50,9 +50,13 @@ public abstract class Phone {
 
                 while (keepTalking) {
 
-                    int input = scanner.nextInt();
-                    if (input == 1) {
-                        keepTalking = false;
+                    try {
+                        String input = scanner.nextLine();
+                        if (input.equalsIgnoreCase("1")) {
+                            keepTalking = false;
+                        }
+                    } catch (Exception _) {
+
                     }
                 }
 
@@ -63,7 +67,7 @@ public abstract class Phone {
 
                 seconds = seconds > 60 ? (seconds - (minutes * 60)) : seconds;
 
-                System.out.printf("Call ended. You talked total %s minutes and %s seconds", minutes, seconds);
+                System.out.printf("Call ended. You talked total %s minutes and %s seconds\n", minutes, seconds);
             }
             default -> {
                 System.out.println("The number you are calling is unreachable now. Please try again.");
